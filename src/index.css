@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Brand Colors (Nubank Inspired) */
+  --color-brand-primary: #8A05BE;
+  --color-brand-secondary: #9C10D4;
+  --color-brand-accent: #B133E1;
+  
+  /* Dark Theme (Purple Nubank) */
+  --color-bg-main: #0C0117;
+  --color-bg-card: #170529;
+  --color-bg-elevated: #240A3D;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B0A0C5;
+  --color-border-main: rgba(163, 61, 242, 0.12);
+  
+  /* Status Colors */
+  --color-status-success: #1DB954;
+  --color-status-danger: #FF3B30;
+  --color-status-warning: #F59E0B;
+  --color-status-info: #3B82F6;
+
+  /* Spacing & Radius */
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-primary font-sans antialiased;
+    background-image: radial-gradient(circle at top right, rgba(130, 10, 209, 0.15), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(130, 10, 209, 0.1), transparent 40%);
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light Theme Overrides */
+  .light {
+    --color-bg-main: #F5F5F7;
+    --color-bg-card: #FFFFFF;
+    --color-bg-elevated: #F2F2F7;
+    --color-text-primary: #1C1C1E;
+    --color-text-secondary: #8E8E93;
+    --color-border-main: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Custom Utilities */
+.glass {
+  @apply backdrop-blur-xl border-t border-border-main;
+  background-color: rgba(15, 5, 29, 0.8);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
